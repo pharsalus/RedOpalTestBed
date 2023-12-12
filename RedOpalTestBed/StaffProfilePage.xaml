@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RedOpalTestBed.StaffProfilePage"
+             Title="Staff Profile">
+    <StackLayout Padding="20">
+        <Image x:Name="personPhoto" Source="placeholder_grey.png" WidthRequest="150" HeightRequest="150" Aspect="AspectFill" />
+        <Label x:Name="personName" FontSize="Large" />
+        <Label x:Name="personId" FontSize="Medium" />
+        <Label x:Name="personPhone" FontSize="Medium" />
+        <!-- Add more fields as needed -->
+    </StackLayout>
+</ContentPage>
