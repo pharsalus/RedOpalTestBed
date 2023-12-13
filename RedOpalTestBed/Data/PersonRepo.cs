@@ -98,12 +98,13 @@ namespace RedOpalTestBed.Data
         }
 
         //Update Person method
-        public void UpdatePerson(Person person)
+        public async Task UpdatePersonAsync(Person person)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
-                string query = "UPDATE People SET Name = @Name, Phone = @Phone, Department = @Department, Street = @Street, City = @City, State = @State, ZIP = @ZIP, Country = @Country WHERE Id = @Id";
+                await connection.OpenAsync();
+                string query = "UPDATE People SET Name = @Name, Phone = @Phone, Department = @Department, " +
+                    "Street = @Street, City = @City, State = @State, ZIP = @ZIP, Country = @Country WHERE Id = @Id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", person.Id);
@@ -115,7 +116,7 @@ namespace RedOpalTestBed.Data
                     command.Parameters.AddWithValue("@State", person.State);
                     command.Parameters.AddWithValue("@ZIP", person.ZIP);
                     command.Parameters.AddWithValue("@Country", person.Country);
-                    command.ExecuteNonQuery();
+                    await command.ExecuteNonQueryAsync();
                 }
             }
         }

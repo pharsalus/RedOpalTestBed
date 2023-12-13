@@ -9,7 +9,7 @@ public partial class AddStaffPage : ContentPage
     public AddStaffPage()
     {
         InitializeComponent();
-        repository = new PersonRepository(); // Or inject it if using dependency injection
+        repository = new PersonRepository(); 
     }
 
     private async void AddStaff_Clicked(object sender, EventArgs e)
@@ -18,7 +18,7 @@ public partial class AddStaffPage : ContentPage
         {
             Name = nameEntry.Text,
             Phone = phoneEntry.Text,
-            DepartmentId = int.Parse(departmentIdEntry.Text), // Assuming DepartmentID is an integer
+            DepartmentId = int.Parse(departmentIdEntry.Text), 
             Street = streetEntry.Text,
             City = cityEntry.Text,
             State = stateEntry.Text,
@@ -35,8 +35,8 @@ public partial class AddStaffPage : ContentPage
 
 
         // Optionally navigate back or display a confirmation
-        DisplayAlert("Success", "New staff member added", "OK");
+        await DisplayAlert("Success", "New staff member added", "OK");
 
-        Navigation.PopAsync(); // Navigate back to the previous page
+        await Navigation.PopAsync(); // Navigate back to the previous page
     }
 }

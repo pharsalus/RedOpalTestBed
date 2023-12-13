@@ -1,18 +1,20 @@
-﻿using RedOpalTestBed.Data; // Update the namespace to match your project
+﻿using RedOpalTestBed.Data; 
 
 namespace RedOpalTestBed
 {
     public partial class MainPage : ContentPage
     {
-        private PersonRepository repository; // Use PersonRepository
-        private List<Person> people = new List<Person>(); // Use a list of Person objects
+        // Use PersonRepository
+        private PersonRepository repository; 
+        private List<Person> people = new List<Person>(); 
 
         public MainPage()
         {
             InitializeComponent();
 
-            repository = new PersonRepository(); // Initialize PersonRepository
-            LoadPeople(); // Load staff data
+            // Initialize PersonRepository
+            repository = new PersonRepository(); 
+            LoadPeople(); 
         }
 
         private void LoadPeople()
@@ -32,16 +34,18 @@ namespace RedOpalTestBed
             base.OnAppearing();
             LoadPeople(); 
         }
-        private void UpdateStaff_Clicked(object sender, EventArgs e)
+        private async void UpdateStaff_Clicked(object sender, EventArgs e)
         {
             if (ListOfPeople.SelectedItem != null)
             {
-                // Update selected staff member information
                 Person selectedPerson = (Person)ListOfPeople.SelectedItem;
-                // Update properties based on your UI and Person class
 
-                repository.UpdatePerson(selectedPerson); // Use UpdatePerson method
-                LoadPeople();
+                // Navigate to the UpdateStaffPage, passing the selectedPerson as a parameter
+                await Navigation.PushAsync(new UpdateStaffPage(selectedPerson));
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Please select a staff member to update", "OK");
             }
         }
 
