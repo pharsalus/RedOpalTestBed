@@ -23,17 +23,15 @@ namespace RedOpalTestBed
 
         private void AddStaff_Clicked(object sender, EventArgs e)
         {
-            // Logic to add a new staff member
-            // Update to match the data entry method in your UI
-            Person newPerson = new Person
-            {
-                // Assign properties based on your UI and Person class
-            };
-
-            repository.AddPerson(newPerson); // Use AddPerson method
-            LoadPeople();
+            
+            Navigation.PushAsync(new AddStaffPage());
         }
-
+        //OnAppearing Refreshes the page when the user navigates back to it
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            LoadPeople(); 
+        }
         private void UpdateStaff_Clicked(object sender, EventArgs e)
         {
             if (ListOfPeople.SelectedItem != null)

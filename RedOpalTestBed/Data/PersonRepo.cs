@@ -52,7 +52,8 @@ namespace RedOpalTestBed.Data
 
 
         // AddPerson method, UpdatePerson, DeletePerson, GetPersonById methods...
-        public void AddPerson(Person person)
+
+        /*public void AddPerson(Person person)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -72,6 +73,30 @@ namespace RedOpalTestBed.Data
                 }
             }
         }
+        */
+
+        //New AddPerson method
+        public async Task AddPersonAsync(Person person)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                var query = "INSERT INTO People (Name, Phone, Department, Street, City, State, ZIP, Country) VALUES (@Name, @Phone, @Department, @Street, @City, @State, @ZIP, @Country)";
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", person.Name);
+                    command.Parameters.AddWithValue("@Phone", person.Phone);
+                    command.Parameters.AddWithValue("@Department", person.DepartmentId);
+                    command.Parameters.AddWithValue("@Street", person.Street);
+                    command.Parameters.AddWithValue("@City", person.City);
+                    command.Parameters.AddWithValue("@State", person.State);
+                    command.Parameters.AddWithValue("@ZIP", person.ZIP);
+                    command.Parameters.AddWithValue("@Country", person.Country);
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
         //Update Person method
         public void UpdatePerson(Person person)
         {
