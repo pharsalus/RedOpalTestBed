@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RedOpalTestBed.UpdateStaffPage"
-             Title="UpdateStaffPage">
-    <ScrollView>
-        <StackLayout Padding="20">
-            <Entry x:Name="nameEntry" Placeholder="Name" />
-            <Entry x:Name="phoneEntry" Placeholder="Phone" Keyboard="Telephone" />
-            <Entry x:Name="departmentIdEntry" Placeholder="Department ID" Keyboard="Numeric" />
-            <Entry x:Name="streetEntry" Placeholder="Street" />
-            <Entry x:Name="cityEntry" Placeholder="City" />
-            <Entry x:Name="stateEntry" Placeholder="State" />
-            <Entry x:Name="zipEntry" Placeholder="ZIP" Keyboard="Numeric" />
-            <Entry x:Name="countryEntry" Placeholder="Country" />
+             x:Class="RedOpalTestBed.UpdateStaffPage">
 
-            <Button Text="Save Changes" Clicked="UpdateStaff_Clicked"/>
-        </StackLayout>
-    </ScrollView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="90"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="70"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Background Image-->
+            <Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="2"/>
+
+            <!--Text StackLayout in the Centre of the screen-->
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1">
+                <Label Text="Update Staff" FontSize="Large" TextColor="White" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Padding="15,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Grid.Column="0">
+                <Image Source="roi_logo.png"/>
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Row="1" Padding="15" >
+            <Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="2"/>
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="nameEntry" Placeholder="Name" TextColor="White"/>
+                <Entry x:Name="phoneEntry" Placeholder="Phone" Keyboard="Telephone" TextColor="White"/>
+                <Entry x:Name="departmentIdEntry" Placeholder="Department ID" Keyboard="Numeric" TextColor="White"/>
+                <Entry x:Name="streetEntry" Placeholder="Street" TextColor="White"/>
+                <Entry x:Name="cityEntry" Placeholder="City" TextColor="White"/>
+                <Entry x:Name="stateEntry" Placeholder="State" TextColor="White"/>
+                <Entry x:Name="zipEntry" Placeholder="ZIP" Keyboard="Numeric" TextColor="White"/>
+                <Entry x:Name="countryEntry" Placeholder="Country" TextColor="White"/>
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Row="2" BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Button Text="Save Changes" Clicked="UpdateStaff_Clicked" Style="{StaticResource JohnButtonStyle}" />
+            </StackLayout>
+        </Grid>
+    </Grid>
 </ContentPage>

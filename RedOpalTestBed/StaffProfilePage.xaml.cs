@@ -17,7 +17,7 @@ public partial class StaffProfilePage : ContentPage
         personId.Text = $"ID: {selectedPerson.Id}";
         personPhone.Text = $"Phone: {selectedPerson.Phone}";
         personDepartmentId.Text = $"Department ID: {selectedPerson.DepartmentId}";
-        personStreetCity.Text = $"{selectedPerson.Street}, {selectedPerson.City}";
+        personStreetCity.Text = $"Address: {selectedPerson.Street}, {selectedPerson.City}";
         personStateZipCountry.Text = $"{selectedPerson.State}, {selectedPerson.ZIP}, {selectedPerson.Country}";
         // Set other fields as necessary
     }
