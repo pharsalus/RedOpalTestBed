@@ -59,6 +59,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\burnt_orange_texture_image.png" />
 	  <None Remove="Resources\Images\placeholder_grey.png" />
+	  <None Remove="Resources\Images\roi_logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>

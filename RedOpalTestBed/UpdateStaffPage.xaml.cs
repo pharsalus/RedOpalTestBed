@@ -35,8 +35,9 @@ public partial class UpdateStaffPage : ContentPage
         }
         else
         {
-            // Handle the case where departmentIdEntry.Text is not a valid integer
-            // For example, you might want to alert the user or set a default value
+            // If the text is not a valid integer, display an alert to the user
+            await DisplayAlert("Input Error", "Please enter a valid number for the department ID.", "OK");
+            return; // Exit the event handler early since there was a validation error
         }
         staffToUpdate.Street = streetEntry.Text;
         staffToUpdate.City = cityEntry.Text;
