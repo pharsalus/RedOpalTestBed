@@ -3,11 +3,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RedOpalTestBed.StaffProfilePage"
              Title="Staff Profile">
-    <StackLayout Padding="20">
-        <Image x:Name="personPhoto" Source="placeholder_grey.png" WidthRequest="150" HeightRequest="150" Aspect="AspectFill" />
-        <Label x:Name="personName" FontSize="Large" />
-        <Label x:Name="personId" FontSize="Medium" />
-        <Label x:Name="personPhone" FontSize="Medium" />
-        <!-- Add more fields as needed -->
-    </StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="90"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="70"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--Background Image-->
+            <Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="2"/>
+
+            <!--Text StackLayout in the Centre of the screen-->
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1">
+                <Label Text="Insert Staff" FontSize="Large" TextColor="White" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Padding="15,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Grid.Column="0">
+                <Image Source="roi_logo.png"/>
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Row="1" Padding="15" >
+            <Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="2"/>
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                <Image x:Name="personPhoto" Source="placeholder_grey.png" WidthRequest="150" HeightRequest="150" Aspect="AspectFill" />
+                <Label x:Name="personName" FontSize="Large" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center"/>
+                <Label x:Name="personId" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center"/>
+                <Label x:Name="personPhone" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center"/>
+                <Label x:Name="personDepartmentId" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center"/>
+                <Label x:Name="personStreetCity" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center"/>
+                <Label x:Name="personStateZipCountry" FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center"/>
+
+
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Row="2" BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <!--<ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />-->
+            </Grid.ColumnDefinitions>
+            <!--<Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="4"/>-->
+            <!--<StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0">
+            <Button Text="Call Staff" BackgroundColor="LightGray" TextColor="Black"></Button>
+        </StackLayout>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1">
+            <Button Text="Intranet" BackgroundColor="LightGray" TextColor="Black"></Button>
+        </StackLayout>-->
+            <!--<StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Button Text="Save New Staff Member" Style="{StaticResource JohnButtonStyle}" />
+            </StackLayout>-->
+        </Grid>
+    </Grid>
 </ContentPage>

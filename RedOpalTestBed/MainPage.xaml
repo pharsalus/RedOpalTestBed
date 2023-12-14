@@ -68,7 +68,8 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
-                
+                <ColumnDefinition />
+
             </Grid.ColumnDefinitions>
             <!--<Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="4"/>-->
             <!-- Call Staff Button -->

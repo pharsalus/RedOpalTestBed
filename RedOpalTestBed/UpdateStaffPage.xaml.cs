@@ -28,7 +28,7 @@ public partial class UpdateStaffPage : ContentPage
     {
         // Update staff ToUpdate object with new values from input fields
         staffToUpdate.Name = nameEntry.Text;
-        staffToUpdate.Phone = staffToUpdate.Name;
+        staffToUpdate.Phone = phoneEntry.Text;
         if (int.TryParse(departmentIdEntry.Text, out int departmentId))
         {
             staffToUpdate.DepartmentId = departmentId;

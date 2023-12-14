@@ -28,14 +28,10 @@
         <Grid Grid.Row="1" Padding="15" >
             <Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="2"/>
             <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
-                <Entry x:Name="nameEntry" Placeholder="Name" TextColor="White"/>
-                <Entry x:Name="phoneEntry" Placeholder="Phone" Keyboard="Telephone" TextColor="White"/>
-                <Entry x:Name="departmentIdEntry" Placeholder="Department ID" Keyboard="Numeric" TextColor="White"/>
-                <Entry x:Name="streetEntry" Placeholder="Street" TextColor="White"/>
-                <Entry x:Name="cityEntry" Placeholder="City" TextColor="White"/>
-                <Entry x:Name="stateEntry" Placeholder="State" TextColor="White"/>
-                <Entry x:Name="zipEntry" Placeholder="ZIP" Keyboard="Numeric" TextColor="White"/>
-                <Entry x:Name="countryEntry" Placeholder="Country" TextColor="White"/>
+                <Image x:Name="personPhoto" Source="placeholder_grey.png" WidthRequest="150" HeightRequest="150" Aspect="AspectFill" />
+                <Label x:Name="personName" FontSize="Large" />
+                <Label x:Name="personId" FontSize="Medium" />
+                <Label x:Name="personPhone" FontSize="Medium" />
             </StackLayout>
         </Grid>
         <Grid Grid.Row="2" BackgroundColor="White">
