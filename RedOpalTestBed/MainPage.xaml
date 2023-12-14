@@ -68,6 +68,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
+                
             </Grid.ColumnDefinitions>
             <!--<Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="4"/>-->
             <!-- Call Staff Button -->
@@ -88,6 +89,11 @@
             <!-- Logout Button -->
             <StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="3">
                 <Button Text="Full Staff Profile" Clicked="FullStaffProfile_Clicked" BackgroundColor="LightGray" TextColor="Black" MinimumWidthRequest="100" MinimumHeightRequest="50" Margin="0,0,0,10"/>
+            </StackLayout>
+
+            <!-- Play Page Button -->
+            <StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="4">
+                <Button Text="Play Page" Clicked="PlayPage_Clicked" Style="{StaticResource JohnButtonStyle}"/>
             </StackLayout>
         </Grid>
     </Grid>

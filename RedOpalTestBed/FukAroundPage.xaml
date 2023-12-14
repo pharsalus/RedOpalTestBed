@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RedOpalTestBed.AddStaffPage"
-             Title="Add Staff">
+             x:Class="RedOpalTestBed.FukAroundPage"
+             Title="Add Page Test">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height ="90"/>
@@ -41,11 +41,19 @@
         <Grid Grid.Row="2" BackgroundColor="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                
+                <!--<ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />-->
             </Grid.ColumnDefinitions>
-            
+            <!--<Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="4"/>-->
+            <!--<StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0">
+                <Button Text="Call Staff" BackgroundColor="LightGray" TextColor="Black"></Button>
+            </StackLayout>
+            <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1">
+                <Button Text="Intranet" BackgroundColor="LightGray" TextColor="Black"></Button>
+            </StackLayout>-->
             <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Button Text="Save New Staff Member" Clicked="AddStaff_Clicked" Style="{StaticResource JohnButtonStyle}" />
+                <Button Text="Save New Staff Member" Style="{StaticResource JohnButtonStyle}" />
             </StackLayout>
         </Grid>
     </Grid>

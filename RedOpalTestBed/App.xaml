@@ -9,7 +9,7 @@
                 <Setter Property="BackgroundColor" Value="LightGray"/>
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="MinimumWidthRequest" Value="100"/>
-                <Setter Property="MinimumHeightRequest" Value="50"/>
+                <Setter Property="MinimumHeightRequest" Value="10"/>
                 <Setter Property="Margin" Value="0,0,0,10"/>
                 
             </Style>

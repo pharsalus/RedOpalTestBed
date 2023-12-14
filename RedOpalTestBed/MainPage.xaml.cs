@@ -78,6 +78,11 @@ namespace RedOpalTestBed
                 await DisplayAlert("Alert", "Please select a staff member first", "OK");
             }
         }
+        private void PlayPage_Clicked(object sender, EventArgs e)
+        {
+
+            Navigation.PushAsync(new FukAroundPage());
+        }
 
     }
 }
