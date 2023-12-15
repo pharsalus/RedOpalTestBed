@@ -83,6 +83,11 @@ namespace RedOpalTestBed
 
             Navigation.PushAsync(new FukAroundPage());
         }
+        private void Settings_Clicked(object sender, EventArgs e)
+        {
+
+            Navigation.PushAsync(new Settings());
+        }
 
     }
 }
