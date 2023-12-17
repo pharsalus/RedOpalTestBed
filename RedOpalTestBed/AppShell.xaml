@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RedOpalTestBed"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
     
 
     <ShellContent
@@ -12,12 +12,12 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
     <ShellContent
-        Title="Test"
+        Title="Insert Staff"
         ContentTemplate="{DataTemplate local:AddStaffPage}"
-        Route="Settings" />
+        Route="AddStaffPage" />
     <ShellContent
-    Title="Test2"
-    ContentTemplate="{DataTemplate local:Settings}"
-    Route="Settings" />
+        Title="Settings"
+        ContentTemplate="{DataTemplate local:Settings}"
+        Route="Settings" />
 
 </Shell>

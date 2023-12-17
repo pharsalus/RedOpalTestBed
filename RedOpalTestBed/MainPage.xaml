@@ -93,9 +93,9 @@
             </StackLayout>
 
             <!-- Play Page Button -->
-            <StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="4">
+            <!--<StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="4">
                 <Button Text="Settings Page" Clicked="Settings_Clicked" Style="{StaticResource JohnButtonStyle}"/>
-            </StackLayout>
+            </StackLayout>-->
         </Grid>
     </Grid>
     

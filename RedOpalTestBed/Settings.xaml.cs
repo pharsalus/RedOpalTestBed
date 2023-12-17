@@ -1,3 +1,4 @@
+#nullable enable
 using SQLite;
 
 namespace RedOpalTestBed;
@@ -20,12 +21,14 @@ public partial class Settings : ContentPage
         ViewModel = new SettingsViewModel();
         BindingContext = ViewModel;
 
-
+        //Create the database in the service OR have some constructor so don't have to do it here.
         // Initialize the SQLite database connection
         var databasePath = Path.Combine(FileSystem.AppDataDirectory, "settings.db");
         _database = new SQLiteAsyncConnection(databasePath);
         _database.CreateTableAsync<UserSet>().Wait();
         //_database.DeleteAllAsync<UserSet>().Wait();
+
+        //fontSizeSlider.Value = ViewModel.FontSize; -> This would be automatic binding 
 
         // Load the user settings
         LoadUserSettings();
@@ -33,15 +36,15 @@ public partial class Settings : ContentPage
 
     private async void SaveSettings_Clicked(object sender, EventArgs e)
     {
-        var name = NameEntry.Text;
-        int age = 0;
-        int.TryParse(AgeEntry.Text, out age);
+        var name = NameEntry.Text; //This would be replaced by saving some login information OR pulling a user account etc.
+        int age = 0; //Set age off an entry etc.
+        int.TryParse(AgeEntry.Text, out age); // Calculated by the app or taken from account information
         bool theme = togTheme.IsToggled;
         var someEnt = someEntry.Text;
 
-        int fontSize = (int)fontSizeSlider.Value;
-        float brightness = (float)brightnessSlider.Value;
-        string selectedFont = fontFamilyPicker.SelectedItem.ToString();
+        //int fontSize = ViewModel.FontSize; //(int)fontSizeSlider.Value; 
+        //float brightness = ViewModel.Brightness; //(float)brightnessSlider.Value;
+        //string selectedFont = ViewModel.SelectedFontFamily; //fontFamilyPicker.SelectedItem.ToString();
 
         var userSettings = new UserSet
         {
@@ -49,9 +52,9 @@ public partial class Settings : ContentPage
             Age = age,
             lightOrDark = theme,
             SomeEntry = someEnt,
-            SavedFontSize = fontSize,
-            SavedBrightness = brightness,
-            SavedFontFamily = selectedFont,
+            SavedFontSize = ViewModel.FontSize,
+            SavedBrightness = ViewModel.Brightness,
+            SavedFontFamily = ViewModel.SelectedFontFamily,
         };
 
         await _database.InsertOrReplaceAsync(userSettings);
@@ -60,7 +63,9 @@ public partial class Settings : ContentPage
         await DisplayAlert("Success", "User settings saved", "OK");
     }
 
-    private async void LoadUserSettings() 
+    //PART of the database services
+    //Onloading OR onAppearing for settings adjustments.
+    private async void LoadUserSettings()
     {
         // Check if the user settings already exist in the database
         var existingSettings = await _database.Table<UserSet>().FirstOrDefaultAsync();
@@ -69,7 +74,7 @@ public partial class Settings : ContentPage
             NameEntry.Text = existingSettings.Name;
             AgeEntry.Text = existingSettings.Age.ToString();
 
-            someEntry.Text = existingSettings.SomeEntry.ToString();
+            someEntry.Text = existingSettings.SomeEntry?.ToString() ?? "Default Value";
 
             fontSizeSlider.Value = (double)existingSettings.SavedFontSize;
             brightnessSlider.Value = (double)existingSettings.SavedBrightness;
@@ -87,9 +92,9 @@ public partial class Settings : ContentPage
 
             var currentTheme = existingSettings.lightOrDark;
             if (currentTheme)
-                Application.Current.UserAppTheme = AppTheme.Dark;
+                Application.Current!.UserAppTheme = AppTheme.Dark;
             else
-                Application.Current.UserAppTheme = AppTheme.Light;
+                Application.Current!.UserAppTheme = AppTheme.Light;
         }
     }
 
@@ -102,8 +107,8 @@ public partial class Settings : ContentPage
 
         // Apply the theme
         if (isDarkTheme)
-            Application.Current.UserAppTheme = AppTheme.Dark;
+            Application.Current!.UserAppTheme = AppTheme.Dark;
         else
-            Application.Current.UserAppTheme = AppTheme.Light;
+            Application.Current!.UserAppTheme = AppTheme.Light;
     }
 }
