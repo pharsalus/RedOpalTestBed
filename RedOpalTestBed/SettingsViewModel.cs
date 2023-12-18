@@ -34,7 +34,8 @@ public class SettingsViewModel : INotifyPropertyChanged //Doesn't Use Communicty
         }
     }
 
-    private List<string> _fontFamilies;
+    private List<string> _fontFamilies = new List<string> { "Arial", "Helvetica", "Times New Roman" };
+
     public List<string> FontFamilies
     {
         get => _fontFamilies;
@@ -45,7 +46,8 @@ public class SettingsViewModel : INotifyPropertyChanged //Doesn't Use Communicty
         }
     }
 
-    private string _selectedFontFamily;
+    private string _selectedFontFamily = "Arial";
+
     public string SelectedFontFamily
     {
         get => _selectedFontFamily;

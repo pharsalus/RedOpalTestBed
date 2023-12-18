@@ -11,17 +11,17 @@ public class UserSet
     #region userdata
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string Name { get; set; } = "Default Name";
     public int Age { get; set; }
     #endregion
 
     public bool lightOrDark { get; set; } //Toggle theme
 
-    public string SomeEntry { get; set; } //RANDOM DATA ENTRY -> Email something later
+    public string SomeEntry { get; set; } = "Default Entry";//RANDOM DATA ENTRY -> Email something later
 
     //These viewmodel settings
     public int SavedFontSize { get; set; }
     public float SavedBrightness { get; set; }
-    public string SavedFontFamily { get; set; }
+    public string SavedFontFamily { get; set; } = "Arial";
 
 }

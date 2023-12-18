@@ -28,7 +28,7 @@ public partial class Settings : ContentPage
         _database.CreateTableAsync<UserSet>().Wait();
         //_database.DeleteAllAsync<UserSet>().Wait();
 
-        //fontSizeSlider.Value = ViewModel.FontSize; -> This would be automatic binding 
+        fontSizeSlider.Value = ViewModel.FontSize; //-> This would be automatic binding 
 
         // Load the user settings
         LoadUserSettings();
@@ -42,6 +42,8 @@ public partial class Settings : ContentPage
         bool theme = togTheme.IsToggled;
         var someEnt = someEntry.Text;
 
+        
+        
         //int fontSize = ViewModel.FontSize; //(int)fontSizeSlider.Value; 
         //float brightness = ViewModel.Brightness; //(float)brightnessSlider.Value;
         //string selectedFont = ViewModel.SelectedFontFamily; //fontFamilyPicker.SelectedItem.ToString();
