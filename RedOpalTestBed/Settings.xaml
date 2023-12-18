@@ -58,10 +58,10 @@
                 <Label Grid.Column="1">ENTER YOUR ID</Label>
                 <Entry Grid.Column="1" x:Name="AgeEntry"></Entry>
 
-                <!--Age to be a birthday year/Confirm DOB VS text entry input-->
+                <!--Font Family Picker-->
 
-                <Label Grid.Row="2" Grid.Column="1">ENTER SOME NEW DATA</Label>
-                <Entry Grid.Row="3" Grid.Column="1" x:Name="someEntry"></Entry>
+                <Label Text="Font Weight" Grid.Row="2" Grid.Column="1"/>
+                <Picker x:Name="fontWeightPicker" ItemsSource="{Binding FontWeights}" SelectedItem="{Binding SelectedFontWeight}" Grid.Row="3" Grid.Column="1" />
 
                 <!-- Brightness Slider -->
                 <Label Text="Brightness" Grid.Row="4" Grid.Column="1"/>

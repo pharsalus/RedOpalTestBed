@@ -33,6 +33,13 @@ public partial class Settings : ContentPage
         // Load the user settings
         LoadUserSettings();
     }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        // Reload the user settings to refresh the page's state
+        LoadUserSettings();
+    }
 
     private async void SaveSettings_Clicked(object sender, EventArgs e)
     {
@@ -40,10 +47,12 @@ public partial class Settings : ContentPage
         int age = 0; //Set age off an entry etc.
         int.TryParse(AgeEntry.Text, out age); // Calculated by the app or taken from account information
         bool theme = togTheme.IsToggled;
-        var someEnt = someEntry.Text;
+        //var someEnt = someEntry.Text;
+        //Adding Font Weight
+        
 
-        
-        
+
+
         //int fontSize = ViewModel.FontSize; //(int)fontSizeSlider.Value; 
         //float brightness = ViewModel.Brightness; //(float)brightnessSlider.Value;
         //string selectedFont = ViewModel.SelectedFontFamily; //fontFamilyPicker.SelectedItem.ToString();
@@ -53,11 +62,15 @@ public partial class Settings : ContentPage
             Name = name,
             Age = age,
             lightOrDark = theme,
-            SomeEntry = someEnt,
+            //SomeEntry = someEnt,
             SavedFontSize = ViewModel.FontSize,
             SavedBrightness = ViewModel.Brightness,
             SavedFontFamily = ViewModel.SelectedFontFamily,
+            SavedFontWeight = ViewModel.SelectedFontWeight,
         };
+
+        var selectedFontWeight = fontWeightPicker.SelectedItem as string; // Cast to string, assuming the picker is bound to strings
+        userSettings.SavedFontWeight = selectedFontWeight ?? "Medium"; // Default to "Medium" if null
 
         await _database.InsertOrReplaceAsync(userSettings);
 
@@ -76,12 +89,13 @@ public partial class Settings : ContentPage
             NameEntry.Text = existingSettings.Name;
             AgeEntry.Text = existingSettings.Age.ToString();
 
-            someEntry.Text = existingSettings.SomeEntry?.ToString() ?? "Default Value";
+            //someEntry.Text = existingSettings.SomeEntry?.ToString() ?? "Default Value";
 
             fontSizeSlider.Value = (double)existingSettings.SavedFontSize;
             brightnessSlider.Value = (double)existingSettings.SavedBrightness;
             fontFamilyPicker.SelectedItem = existingSettings.SavedFontFamily;
-
+            //Adding font weight picker
+            fontWeightPicker.SelectedItem = existingSettings.SavedFontWeight;
 
             if (existingSettings.lightOrDark)
             {

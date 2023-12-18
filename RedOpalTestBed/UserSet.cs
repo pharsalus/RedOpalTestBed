@@ -17,11 +17,12 @@ public class UserSet
 
     public bool lightOrDark { get; set; } //Toggle theme
 
-    public string SomeEntry { get; set; } = "Default Entry";//RANDOM DATA ENTRY -> Email something later
+    //public string SomeEntry { get; set; } = "Default Entry";//RANDOM DATA ENTRY -> Email something later
 
     //These viewmodel settings
     public int SavedFontSize { get; set; }
     public float SavedBrightness { get; set; }
     public string SavedFontFamily { get; set; } = "Arial";
+    public string SavedFontWeight { get; set; } = "Medium";//Thin, Medium, Bold
 
 }

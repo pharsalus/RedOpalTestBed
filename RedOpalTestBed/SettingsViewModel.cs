@@ -58,6 +58,29 @@ public class SettingsViewModel : INotifyPropertyChanged //Doesn't Use Communicty
         }
     }
 
+    //Font Weights
+    private List<string> _fontWeights = new List<string> { "Thin", "Medium", "Bold" };
+    public List<string> FontWeights
+    {
+        get => _fontWeights;
+        set
+        {
+            _fontWeights = value;
+            OnPropertyChanged(nameof(FontWeights));
+        }
+    }
+
+    private string _selectedFontWeight = "Medium";
+    public string SelectedFontWeight
+    {
+        get => _selectedFontWeight;
+        set
+        {
+            _selectedFontWeight = value;
+            OnPropertyChanged(nameof(SelectedFontWeight));
+        }
+    }
+
     //Defaults <- MVC <- Default settings control scripts
     //Prompts of defaults:
     //Reset Settings, Dark Theme, Light Theme, Colour Blind Mode.
@@ -70,6 +93,7 @@ public class SettingsViewModel : INotifyPropertyChanged //Doesn't Use Communicty
         FontSize = 16;
         FontFamilies = new List<string> { "Arial", "Times New Roman", "Verdana" };
         SelectedFontFamily = "Arial";
+        _selectedFontWeight = "Medium";
     }
 
     //TASK/COMMAND/INTERFACE 
