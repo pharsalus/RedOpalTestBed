@@ -50,12 +50,10 @@ public partial class Settings : ContentPage
         //var someEnt = someEntry.Text;
         //Adding Font Weight
         
-
-
-
-        //int fontSize = ViewModel.FontSize; //(int)fontSizeSlider.Value; 
-        //float brightness = ViewModel.Brightness; //(float)brightnessSlider.Value;
-        //string selectedFont = ViewModel.SelectedFontFamily; //fontFamilyPicker.SelectedItem.ToString();
+        int fontSize = (int)fontSizeSlider.Value; 
+        float brightness = (float)brightnessSlider.Value;
+        string selectedFont = fontFamilyPicker.SelectedItem?.ToString() ?? "DefaultFont";
+        string selectedFontWeight = fontWeightPicker.SelectedItem?.ToString() ?? "DefaultFontWeight";
 
         var userSettings = new UserSet
         {
@@ -69,9 +67,7 @@ public partial class Settings : ContentPage
             SavedFontWeight = ViewModel.SelectedFontWeight,
         };
 
-        var selectedFontWeight = fontWeightPicker.SelectedItem as string; // Cast to string, assuming the picker is bound to strings
-        userSettings.SavedFontWeight = selectedFontWeight ?? "Medium"; // Default to "Medium" if null
-
+        
         await _database.InsertOrReplaceAsync(userSettings);
 
         // Show a confirmation message
@@ -91,8 +87,8 @@ public partial class Settings : ContentPage
 
             //someEntry.Text = existingSettings.SomeEntry?.ToString() ?? "Default Value";
 
-            fontSizeSlider.Value = (double)existingSettings.SavedFontSize;
-            brightnessSlider.Value = (double)existingSettings.SavedBrightness;
+            ViewModel.FontSize = (int)existingSettings.SavedFontSize;
+            ViewModel.Brightness = (float)existingSettings.SavedBrightness;
             fontFamilyPicker.SelectedItem = existingSettings.SavedFontFamily;
             //Adding font weight picker
             fontWeightPicker.SelectedItem = existingSettings.SavedFontWeight;

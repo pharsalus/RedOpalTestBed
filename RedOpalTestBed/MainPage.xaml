@@ -68,7 +68,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
-                <ColumnDefinition />
+                <!--<ColumnDefinition />-->
 
             </Grid.ColumnDefinitions>
             <!--<Image Source="burnt_orange_texture_image.png" Aspect="AspectFill" Grid.ColumnSpan="4"/>-->
@@ -93,9 +93,9 @@
             </StackLayout>
 
             <!-- Play Page Button -->
-            <StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="4">
+            <!--<StackLayout Padding="10" VerticalOptions="End" HorizontalOptions="CenterAndExpand" Grid.Column="4">
                 <Button Text="Play Page" Clicked="PlayPage_Clicked" Style="{StaticResource JohnButtonStyle}"/>
-            </StackLayout>
+            </StackLayout>-->
         </Grid>
     </Grid>
     

@@ -65,11 +65,11 @@
 
                 <!-- Brightness Slider -->
                 <Label Text="Brightness" Grid.Row="4" Grid.Column="1"/>
-                <Slider x:Name="brightnessSlider" Minimum="0" Maximum="1" Value="{Binding Brightness}" Grid.Row="5" Grid.Column="1"/>
+                <Slider x:Name="brightnessSlider" Minimum="0" Maximum="1" Value="{Binding Brightness, Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
 
                 <!-- Font Size Slider -->
                 <Label Text="Font Size" Grid.Row="6" Grid.Column="1" />
-                <Slider x:Name="fontSizeSlider" Minimum="10" Maximum="30" Value="{Binding FontSize}" Grid.Row="7" Grid.Column="1" />
+                <Slider x:Name="fontSizeSlider" Minimum="10" Maximum="30" Value="{Binding FontSize, Mode=TwoWay}" Grid.Row="7" Grid.Column="1" />
 
                 <!-- Font Family Picker -->
                 <Label Text="Font Family" Grid.Row="8" Grid.Column="1"/>
